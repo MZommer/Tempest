@@ -38,7 +38,7 @@ export const ProductsProvider = ({ children }) => {
     dispatch({type: SIDEBAR_CLOSE})
   }
 
-  const fetchProducts = async (url) => {
+  const fetchProducts = async () => {
     dispatch({ type: GET_PRODUCTS_BEGIN })
     
     try {
@@ -68,7 +68,7 @@ export const ProductsProvider = ({ children }) => {
   }, [])
 
   return (
-    <ProductsContext.Provider value={{...state, openSidebar, closeSidebar, fetchSingleProduct }}>
+    <ProductsContext.Provider value={{...state, openSidebar, closeSidebar, fetchSingleProduct, fetchProducts }}>
       {children}
     </ProductsContext.Provider>
   )

@@ -6,6 +6,8 @@ import Footer from "@components/Footer";
 import CartScreen from '@screens/CartScreen';
 import SpaceScreen from '@screens/SpaceScreen';
 import ProductScreen from '@screens/ProductScreen';
+import ProductsPage from '@screens/ProductsPage';
+
 
 import { useTempestContext } from "@contexts/TempestContext";
 
@@ -25,6 +27,7 @@ export default function App() {
         <Routes>
           <Route path="products/:id" element={guardedElement(<ProductScreen/>, isInitialized)}/>
           <Route path="cart" element={guardedElement(<CartScreen/>, isInitialized)}/>
+          <Route path="products" element={<ProductsPage/>}/>
           <Route path="setSpace" element={<SpaceScreen/>}/>
         </Routes>
         

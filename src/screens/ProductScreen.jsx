@@ -51,6 +51,7 @@ const SingleProductPage = () => {
           <section className='content'>
             <h2>{Name}</h2>
             <h5 style={{opacity: 0.5}}>{Brand}</h5>
+            <h5 style={{opacity: 0.7}}>{Description}</h5>
             <h5 className='price'>{formatPrice(Price)}</h5>
             <hr/>
 

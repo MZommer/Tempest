@@ -53,7 +53,7 @@ const SingleProductPage = () => {
             <h5 style={{opacity: 0.5}}>{Brand}</h5>
             <h5 style={{opacity: 0.7}}>{Description}</h5>
             <h5 className='price'>{formatPrice(Price)}</h5>
-            <hr/>
+            <hr/> 
 
 
             <div>
@@ -61,25 +61,25 @@ const SingleProductPage = () => {
                 <h3>Tabla nutricional </h3>
                 <hr/>
                 <p>
-                  Hidratos de Carbono :  {NutritionalTable.Carbohydrates} g<span><i className="fa fa-check-circle" aria-hidden="true" height="10 px"></i></span>
+                  Hidratos de Carbono :  {NutritionalTable.Carbohydrates} g
                 </p>
                 <p>
-                  Proteìnas: {NutritionalTable.Protein} g <span><i className="fa fa-check-circle" aria-hidden="true" height="10 px"></i></span>
+                  Proteìnas: {NutritionalTable.Protein} g 
                 </p>
                 <p>
-                  Grasas:   {NutritionalTable.Carbohydrates} g<span><i className="fa fa-check-circle" aria-hidden="true" height="10 px"></i></span>
+                  Grasas:   {NutritionalTable.Carbohydrates} g
                 </p>
                 <p>
-                  Fibra:   {NutritionalTable.Fiber} g<span><i className="fa fa-check-circle" aria-hidden="true" height="10 px"></i></span>
+                  Fibra:   {NutritionalTable.Fiber} g
                 </p>
                 <p>
-                  Sodio:  {NutritionalTable.Sodium} mg<span><i className="fa fa-check-circle" aria-hidden="true" height="10 px"></i></span>
+                  Sodio:  {NutritionalTable.Sodium} mg
                 </p>
                 <p>
-                  Calcio:   {NutritionalTable.Calcium} mg<span><i className="fa fa-check-circle" aria-hidden="true" height="10 px"></i></span>
+                  Calcio:   {NutritionalTable.Calcium} mg
                 </p>
                 <p>
-                  Hierro:   {NutritionalTable.Iron} mg<span> <i className="fa fa-check-circle" aria-hidden="true" height="10 px"></i></span>
+                  Hierro:   {NutritionalTable.Iron} mg
                 </p>
               </article>
             </div>

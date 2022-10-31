@@ -7,16 +7,23 @@ import { Link } from 'react-router-dom'
 const Product = ({Thumb, Name, Price, ID, Brand}) => {
   return <Wrapper>
     <div className="container">
+      
+      <button type='button' height="10%" onClick={clearCart}>
+        <i class="fa fa-qrcode" aria-hidden="true" ></i>
+      </button>   
       <img src={Thumb} alt={Name} />
+      
       <Link to={`/products/${ID}`} className="link">
         <FaSearch />
       </Link>
+      
     </div>
 
     <footer>
       <h5>{Name}</h5>
       <p>{Brand}</p>
       <p>{formatPrice(Price)}</p>
+          
     </footer>
   </Wrapper>
 }
@@ -75,6 +82,13 @@ const Wrapper = styled.article`
   footer p {
     color: var(--clr-primary-5);
     letter-spacing: var(--spacing);
+  }
+
+  button{
+    position: absolute; 
+    left: calc(100px/2 - 40px);
+    top: calc(300px/2 - 10px);
+   
   }
 `
 export default Product

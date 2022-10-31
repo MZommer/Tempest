@@ -7,6 +7,7 @@ import Loading from '@components/Loading';
 import PageHero from '@components/PageHero';
 import ProductImages from '@components/ProductImages';
 import styled from 'styled-components';
+import AddToCart from '@components/AddToCart';
 
 const SingleProductPage = () => {
   const { id } = useParams();
@@ -59,30 +60,29 @@ const SingleProductPage = () => {
                 <h3>Tabla nutricional </h3>
                 <hr/>
                 <p>
-                  Hidratos de Carbono :  {NutritionalTable.Carbohydrates} <span><i className="fa fa-check-circle" aria-hidden="true" height="10 px"></i></span>
+                  Hidratos de Carbono :  {NutritionalTable.Carbohydrates} g<span><i className="fa fa-check-circle" aria-hidden="true" height="10 px"></i></span>
                 </p>
                 <p>
-                  Proteìnas: {NutritionalTable.Protein} <span><i className="fa fa-check-circle" aria-hidden="true" height="10 px"></i></span>
+                  Proteìnas: {NutritionalTable.Protein} g <span><i className="fa fa-check-circle" aria-hidden="true" height="10 px"></i></span>
                 </p>
                 <p>
-                  Grasas:   {NutritionalTable.Carbohydrates}<span><i className="fa fa-check-circle" aria-hidden="true" height="10 px"></i></span>
+                  Grasas:   {NutritionalTable.Carbohydrates} g<span><i className="fa fa-check-circle" aria-hidden="true" height="10 px"></i></span>
                 </p>
                 <p>
-                  Fibra:   {NutritionalTable.Fiber}<span><i className="fa fa-check-circle" aria-hidden="true" height="10 px"></i></span>
+                  Fibra:   {NutritionalTable.Fiber} g<span><i className="fa fa-check-circle" aria-hidden="true" height="10 px"></i></span>
                 </p>
                 <p>
-                  Sodio:  {NutritionalTable.Sodium} <span><i className="fa fa-check-circle" aria-hidden="true" height="10 px"></i></span>
+                  Sodio:  {NutritionalTable.Sodium} mg<span><i className="fa fa-check-circle" aria-hidden="true" height="10 px"></i></span>
                 </p>
                 <p>
-                  Calcio:   {NutritionalTable.Calcium}<span><i className="fa fa-check-circle" aria-hidden="true" height="10 px"></i></span>
+                  Calcio:   {NutritionalTable.Calcium} mg<span><i className="fa fa-check-circle" aria-hidden="true" height="10 px"></i></span>
                 </p>
                 <p>
-                  Hierro:   {NutritionalTable.Iron}<span><i className="fa fa-check-circle" aria-hidden="true" height="10 px"></i></span>
+                  Hierro:   {NutritionalTable.Iron} mg<span> <i className="fa fa-check-circle" aria-hidden="true" height="10 px"></i></span>
                 </p>
               </article>
             </div>
-            <hr />
-             {/* <AddToCart product={product} /> */}
+            <AddToCart product={product} />
           </section>
         </div>
       </div>

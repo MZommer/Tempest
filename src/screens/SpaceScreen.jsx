@@ -1,17 +1,20 @@
 import { useState } from 'react'
+import toast from 'react-hot-toast'
 import styled from 'styled-components';
 import Loading from '@components/Loading';
 import { useTempestContext } from "@contexts/TempestContext";
-
+import { useNavigate } from 'react-router-dom'
 export default function SpaceScreen() {
-    const {isLoading, isInitialized, configError, getConfig, resetState} = useTempestContext();
+    const { isLoading, isInitialized, configError, getConfig, resetState } = useTempestContext();
     const [space, setSpace] = useState("");
+    const navigate = useNavigate();
+    if (isInitialized) {
+        toast.success("Grupo Valido! Escanea de vuelta el qr!")
+        //navigate(-1)
+    }
 
-    // if (isInitialized) // TODO: Add Redirect to opened page
-    //     window.location = "/"
-
-    if (configError){
-        setInterval(()=> {
+    if (configError) {
+        setInterval(() => {
             resetState()
             window.location = "/setSpace"
         }, 3000)
@@ -31,8 +34,8 @@ export default function SpaceScreen() {
                 <h1>Escriba su grupo</h1>
                 <form>
                     <div className='form-control'>
-                        <input type='text' onChange={event => setSpace(event.target.value)} name='text' placeholder='Ingrese su grupo' className='search-input'  />
-                    </div>    
+                        <input type='text' onChange={event => setSpace(event.target.value)} name='text' placeholder='Ingrese su grupo' className='search-input' />
+                    </div>
                 </form>
                 <button onClick={() => getConfig(space)} className="btn">Enviar</button>
             </div>

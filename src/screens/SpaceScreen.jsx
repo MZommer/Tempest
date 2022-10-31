@@ -28,8 +28,12 @@ export default function SpaceScreen() {
     return (
         <Wrapper className='page-100'>
             <div className='empty'>
-                <h2>Escriba su espacio</h2>
-                <input type="text" onChange={event => setSpace(event.target.value)}/>
+                <h1>Escriba su grupo</h1>
+                <form>
+                    <div className='form-control'>
+                        <input type='text' onChange={event => setSpace(event.target.value)} name='text' placeholder='Ingrese su grupo' className='search-input'  />
+                    </div>    
+                </form>
                 <button onClick={() => getConfig(space)} className="btn">Enviar</button>
             </div>
         </Wrapper>
@@ -39,8 +43,22 @@ export default function SpaceScreen() {
 const Wrapper = styled.main`
   .empty {
     text-align: center;
-    h2 {
-      margin-bottom: 1rem;
+    h1 {
+      margin-bottom: 2rem;
     }
+
+    .form-control {
+        margin-bottom: 1.25rem;
+        h5 {
+          margin-bottom: 0.5rem;
+        }
+      }
+      .search-input {
+        padding: 0.5rem;
+        background: var(--clr-grey-10);
+        border-radius: var(--radius);
+        border-color: transparent;
+        letter-spacing: var(--spacing);
+      }
   }
 `;

@@ -15,4 +15,4 @@ export const links = [
 export const TCS_URL = "http://localhost:4000"
 
 export const saldo = 1000
-export const products_url = "http://localhost:4000/products"
+export const products_url = "http://localhost:4000/v1/products"

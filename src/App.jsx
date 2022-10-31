@@ -1,19 +1,26 @@
-import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, useNavigate } from 'react-router-dom';
 import Navbar from "@components/Navbar";
 import Sidebar from "@components/Sidebar";
 import Footer from "@components/Footer";
 
 import CartScreen from '@screens/CartScreen';
+import SpaceScreen from '@screens/SpaceScreen';
+
+import { useTempestContext } from "@contexts/TempestContext";
+import { useEffect } from 'react';
 
 export default function App() {
-
+  
+  const { isInitialized } = useTempestContext();
+  
   return (
-    <Router>
+    <Router location="/setSpace">
         <Navbar />
         <Sidebar />
         <Routes>
+          
           <Route path="cart" element={<CartScreen/>}/>
-         
+          <Route path="setSpace" element={<SpaceScreen/>}/>
         </Routes>
         
         <Footer />

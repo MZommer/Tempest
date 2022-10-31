@@ -22,7 +22,7 @@ function addToCart(state, action) {
         id: id,
         name: product.name,
         amount,
-        image: product.images[0].url,
+        image: product.thumb,
         price: product.price,
         max: product.stock,
     };

@@ -6,12 +6,12 @@ export default defineConfig({
   plugins: [react()],
   resolve: {
     alias: {
-      '@': path.join(__dirname, 'src/assets'),
       "@assets":     path.join(__dirname, 'src/assets'),
       "@components": path.join(__dirname, 'src/components'),
       "@contexts":   path.join(__dirname, 'src/contexts'),
       "@libs":       path.join(__dirname, 'src/libs'),
       "@reducers":   path.join(__dirname, 'src/reducers'),
+      "@routes":     path.join(__dirname, 'src/routes'),
       "@screens":    path.join(__dirname, 'src/screens'),
       "@utils":      path.join(__dirname, 'src/utils'),
       "@actions":    path.join(__dirname, 'src/actions'),

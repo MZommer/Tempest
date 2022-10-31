@@ -1,24 +1,29 @@
 import React from 'react'
+import swal from 'sweetalert'
 import styled from 'styled-components'
 import { formatPrice } from '@utils/helpers'
 import { FaSearch } from 'react-icons/fa'
 import { Link } from 'react-router-dom'
-import { useCartContext } from '@contexts/CartContext'
-
 const Product = ({Thumb, Name, Price, ID, Brand}) => {
-  const {clearCart} = useCartContext();
+  const openQRModal = () => {
+    const url = window.location.href + "/" + ID
+    console.log(url)
+    swal({
+      title: Name,
+      button: "👍",
+      icon: "https://api.qrserver.com/v1/create-qr-code/?size=250x250&data=" + url,
+    })
+  }
   return <Wrapper>
     <div className="container">
-      
-      <button type='button' height="10%" onClick={clearCart}>
-        <i class="fa fa-qrcode" aria-hidden="true" ></i>
-      </button>   
       <img src={Thumb} alt={Name} />
       
       <Link to={`/products/${ID}`} className="link">
         <FaSearch />
       </Link>
-      
+      <button type='button' onClick={openQRModal}>
+        <i className="fa fa-qrcode" aria-hidden="true" ></i>
+      </button> 
     </div>
 
     <footer>

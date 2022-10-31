@@ -1,6 +1,6 @@
 import { createContext, useEffect, useContext, useReducer } from 'react';
 import reducer from '@reducers/CartReducer';
-import { ADD_TO_CART, REMOVE_CART_ITEM, TOGGLE_CART_ITEM_AMOUNT, CLEAR_CART, COUNT_CART_TOTALS } from '@actions';
+import { ADD_TO_CART, REMOVE_CART_ITEM, TOGGLE_CART_ITEM_AMOUNT, CLEAR_CART, COUNT_CART_TOTALS, SET_INITAL_MONEY } from '@actions';
 
 const getLocalStorage = () => JSON.parse(localStorage.getItem('cart') || "[]");
 
@@ -8,6 +8,7 @@ const initialState = {
   cart: getLocalStorage(),
   total_items: 0,
   total_amount: 0,
+  moneyAvailable: 0,
 };
 
 const CartContext = createContext();
@@ -41,7 +42,12 @@ export const CartProvider = ({ children }) => {
     localStorage.setItem('cart', JSON.stringify(state.cart));
   }, [state.cart]);
 
-  return <CartContext.Provider value={{ ...state, addToCart, removeItem, toggleAmount, clearCart }}>{children}</CartContext.Provider>;
+  const setInitialMoney = initialMoney => {
+    console.log(initialMoney)
+    dispatch({ type: SET_INITAL_MONEY, payload: {initialMoney}})
+  }
+
+  return <CartContext.Provider value={{ ...state, addToCart, removeItem, toggleAmount, clearCart, setInitialMoney }}>{children}</CartContext.Provider>;
 };
 // make sure use
 export const useCartContext = () => {

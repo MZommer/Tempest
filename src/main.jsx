@@ -8,12 +8,12 @@ import { TempestProvider } from '@contexts/TempestContext'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <TempestProvider>
-      <CartProvider>
+    <CartProvider>
+      <TempestProvider>
         <ProductsProvider>
           <App />
         </ProductsProvider>
-      </CartProvider>
-    </TempestProvider>
+      </TempestProvider>
+    </CartProvider>
   </React.StrictMode>
 )

@@ -1,4 +1,4 @@
-import { ADD_TO_CART, CLEAR_CART, COUNT_CART_TOTALS, REMOVE_CART_ITEM, TOGGLE_CART_ITEM_AMOUNT } from '../actions';
+import { ADD_TO_CART, CLEAR_CART, COUNT_CART_TOTALS, REMOVE_CART_ITEM, TOGGLE_CART_ITEM_AMOUNT, SET_INITAL_MONEY } from '../actions';
 
 
 function addToCart(state, action) {
@@ -73,6 +73,8 @@ function countCart(state, action) {
 
 export default function CartReducer(state, action) {
     switch (action.type) {
+        case SET_INITAL_MONEY:
+            return { ...state, moneyAvailable: action.payload.initialMoney}
         case ADD_TO_CART:
             return addToCart(state, action);
         case REMOVE_CART_ITEM:

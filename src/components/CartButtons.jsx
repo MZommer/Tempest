@@ -11,7 +11,7 @@ import {saldo} from '@utils/constants';
 
 const CartButtons = () => {
   const { closeSidebar } = useProductsContext();
-  const { total_items, clearCart } = useCartContext();
+  const { total_items, clearCart, moneyAvailable } = useCartContext();
   // const { loginWithRedirect, myUser, logout } = useUserContext();
   let myUser, logout 
   return (
@@ -34,8 +34,9 @@ const CartButtons = () => {
                     
         </button>*/
         <Link to='/balance' onClick={closeSidebar} className='cart-btn'>
-        {saldo}
+        
         <span className='cart-container'>
+          {moneyAvailable}
           <IoLogoUsd />
         </span>
       </Link>

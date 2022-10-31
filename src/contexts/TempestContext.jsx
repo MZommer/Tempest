@@ -1,5 +1,6 @@
 import axios from "axios";
 import { createContext, useContext, useEffect, useReducer } from 'react'
+import { useCartContext } from "./CartContext";
 import reducer from '@reducers/TempestReducer'
 import {
     TEMPEST_CONFIG_BEGIN,
@@ -16,7 +17,7 @@ const getLocalStorage = () => {
         configError: false,
         isLoading: false,
         isInitialized: false,
-        initialMoney: 0,
+        InitialMoney: 0,
         SpaceID: "UAT",
         EnvID: "DEV",
         Currency: "ARS",
@@ -30,7 +31,7 @@ const TempestContext = createContext();
 
 export const TempestProvider = ({ children }) => {
     const [state, dispatch] = useReducer(reducer, initialState);
-
+    const { setInitialMoney } = useCartContext();
 
     const getConfig = async SpaceID => {
         dispatch({type: TEMPEST_CONFIG_BEGIN})
@@ -44,6 +45,7 @@ export const TempestProvider = ({ children }) => {
         })  .then(res => res.data)
             .catch(err => dispatch({ type: TEMPEST_CONFIG_ERROR}))
         dispatch({ type: SET_TEMPEST_CONFIG, payload: config});
+        setInitialMoney(config.InitialMoney)
     }
 
     const resetState = () => {
@@ -53,7 +55,7 @@ export const TempestProvider = ({ children }) => {
 
     useEffect(()=>{
         localStorage.setItem("config", JSON.stringify(state))
-    }, [state.isInitialized, state.initialMoney, state.SpaceID, state.EnvID])
+    }, [state.isInitialized, state.InitialMoney, state.SpaceID, state.EnvID])
 
     return <TempestContext.Provider value={{...state, getConfig, resetState}}>  {children} </TempestContext.Provider>
 }

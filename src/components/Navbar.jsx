@@ -9,6 +9,7 @@ import { useProductsContext } from '@contexts/ProductsContext';
 // import { useUserContext } from '@contexts/user_context';
 
 const Nav = () => {
+
   const { openSidebar } = useProductsContext();
   let myUser;//const { myUser } = useUserContext();
 

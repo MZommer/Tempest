@@ -51,35 +51,34 @@ const SingleProductPage = () => {
             <h2>{Name}</h2>
             <h5 style={{opacity: 0.5}}>{Brand}</h5>
             <h5 className='price'>{formatPrice(Price)}</h5>
-            <hr/><br></br>
+            <hr/>
 
-            <p className='info'> 
-              <span>Tabla nutricional: </span>
-            </p>
 
             <div>
               <article>
-                <h5>
-                  HC :  {NutritionalTable.Carbohydrates} <span><i className="fa fa-check-circle" aria-hidden="true" height="10 px"></i></span>
-                </h5>
-                <h5>
-                  PROTEINAS: {NutritionalTable.Protein} <span><i className="fa fa-check-circle" aria-hidden="true" height="10 px"></i></span>
-                </h5>
-                <h5>
-                  GRASAS:   {NutritionalTable.Carbohydrates}<span><i className="fa fa-check-circle" aria-hidden="true" height="10 px"></i></span>
-                </h5>
-                <h5>
-                  FIBRA:   {NutritionalTable.Fiber}<span><i className="fa fa-check-circle" aria-hidden="true" height="10 px"></i></span>
-                </h5>
-                <h5>
-                  SODIO:  {NutritionalTable.Sodium} <span><i className="fa fa-check-circle" aria-hidden="true" height="10 px"></i></span>
-                </h5>
-                <h5>
-                  CALCIO:   {NutritionalTable.Calcium}<span><i className="fa fa-check-circle" aria-hidden="true" height="10 px"></i></span>
-                </h5>
-                <h5>
-                  HIERRO:   {NutritionalTable.Iron}<span><i className="fa fa-check-circle" aria-hidden="true" height="10 px"></i></span>
-                </h5>
+                <h3>Tabla nutricional </h3>
+                <hr/>
+                <p>
+                  Hidratos de Carbono :  {NutritionalTable.Carbohydrates} <span><i className="fa fa-check-circle" aria-hidden="true" height="10 px"></i></span>
+                </p>
+                <p>
+                  Proteìnas: {NutritionalTable.Protein} <span><i className="fa fa-check-circle" aria-hidden="true" height="10 px"></i></span>
+                </p>
+                <p>
+                  Grasas:   {NutritionalTable.Carbohydrates}<span><i className="fa fa-check-circle" aria-hidden="true" height="10 px"></i></span>
+                </p>
+                <p>
+                  Fibra:   {NutritionalTable.Fiber}<span><i className="fa fa-check-circle" aria-hidden="true" height="10 px"></i></span>
+                </p>
+                <p>
+                  Sodio:  {NutritionalTable.Sodium} <span><i className="fa fa-check-circle" aria-hidden="true" height="10 px"></i></span>
+                </p>
+                <p>
+                  Calcio:   {NutritionalTable.Calcium}<span><i className="fa fa-check-circle" aria-hidden="true" height="10 px"></i></span>
+                </p>
+                <p>
+                  Hierro:   {NutritionalTable.Iron}<span><i className="fa fa-check-circle" aria-hidden="true" height="10 px"></i></span>
+                </p>
               </article>
             </div>
             <hr />
@@ -128,6 +127,10 @@ const Wrapper = styled.main`
     border: 1px solid var(--clr-grey-8);
     border-radius: var(--radius);
     padding: 1.5rem 3rem;
+  }
+
+  hr{
+    margin-bottom:1.5rem;
   }
   
 `;

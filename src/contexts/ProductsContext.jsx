@@ -54,7 +54,7 @@ export const ProductsProvider = ({ children }) => {
     dispatch({ type: GET_SINGLE_PRODUCT_BEGIN });
 
     try {
-      const singleProduct = await tcs_client.getProduct(id);
+      const singleProduct = await axios.get(url + "/" + id).then(res => res.data);
 
       dispatch({ type: GET_SINGLE_PRODUCT_SUCCESS, payload: singleProduct });
 

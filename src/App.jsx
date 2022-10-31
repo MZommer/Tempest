@@ -5,6 +5,7 @@ import Footer from "@components/Footer";
 
 import CartScreen from '@screens/CartScreen';
 import SpaceScreen from '@screens/SpaceScreen';
+import ProductScreen from '@screens/ProductScreen';
 
 import { useTempestContext } from "@contexts/TempestContext";
 import { useEffect } from 'react';
@@ -18,7 +19,7 @@ export default function App() {
         <Navbar />
         <Sidebar />
         <Routes>
-          
+          <Route path="products/:id" element={<ProductScreen/>}/>
           <Route path="cart" element={<CartScreen/>}/>
           <Route path="setSpace" element={<SpaceScreen/>}/>
         </Routes>

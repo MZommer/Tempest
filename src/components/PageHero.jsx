@@ -5,7 +5,7 @@ export default function PageHero({title, product}) {
   return <Wrapper>
     <div className="section-center">
       <h3>
-        / {title}
+        {title}
       </h3>
     </div>
   </Wrapper>

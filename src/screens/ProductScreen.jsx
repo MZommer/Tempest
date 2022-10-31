@@ -12,7 +12,8 @@ const SingleProductPage = () => {
   const { id } = useParams();
   const navigate = useNavigate();
   const { single_product_loading: loading, single_product_error: error, single_product: product, fetchSingleProduct } = useProductsContext();
-
+  const { Name, Brand, Price, Description, Thumb, Cover, NutritionalTable} = product;
+  
   useEffect(() => {
     fetchSingleProduct(id);
     // eslint-disable-next-line
@@ -27,17 +28,19 @@ const SingleProductPage = () => {
     // eslint-disable-next-line
   }, [error]);
 
-  if (loading) {
+  if (loading || !NutritionalTable) {
     return <Loading />;
   }
 
   if (error) {
     return <Error type='single-product' />;
   }
+
+
   console.log("Product: ")
-  console.log(product)
-  const { Name, Brand, Price, Description, Thumb, Cover, NutritionalTable} = product;
+  console.log(product.NutritionalTable)
   let stock, sku, company;
+
   return (
     <Wrapper>
       <PageHero title={product.Name} product />
@@ -48,21 +51,37 @@ const SingleProductPage = () => {
             <h2>{Name}</h2>
             <h5 style={{opacity: 0.5}}>{Brand}</h5>
             <h5 className='price'>{formatPrice(Price)}</h5>
-            <p className='desc'>{Description}</p>
-            <p className='info'>
-              <span>Availability : </span>
-              {stock > 0 ? `In Stock (${stock})` : 'out of stock'}
+            <hr/><br></br>
+
+            <p className='info'> 
+              <span>Tabla nutricional: </span>
             </p>
 
-            <p className='info'>
-              <span>SKU : </span>
-              {sku}
-            </p>
-
-            <p className='info'>
-              <span>Brand : </span>
-              {company}
-            </p>
+            <div>
+              <article>
+                <h5>
+                  HC :  {NutritionalTable.Carbohydrates} <span><i className="fa fa-check-circle" aria-hidden="true" height="10 px"></i></span>
+                </h5>
+                <h5>
+                  PROTEINAS: {NutritionalTable.Protein} <span><i className="fa fa-check-circle" aria-hidden="true" height="10 px"></i></span>
+                </h5>
+                <h5>
+                  GRASAS:   {NutritionalTable.Carbohydrates}<span><i className="fa fa-check-circle" aria-hidden="true" height="10 px"></i></span>
+                </h5>
+                <h5>
+                  FIBRA:   {NutritionalTable.Fiber}<span><i className="fa fa-check-circle" aria-hidden="true" height="10 px"></i></span>
+                </h5>
+                <h5>
+                  SODIO:  {NutritionalTable.Sodium} <span><i className="fa fa-check-circle" aria-hidden="true" height="10 px"></i></span>
+                </h5>
+                <h5>
+                  CALCIO:   {NutritionalTable.Calcium}<span><i className="fa fa-check-circle" aria-hidden="true" height="10 px"></i></span>
+                </h5>
+                <h5>
+                  HIERRO:   {NutritionalTable.Iron}<span><i className="fa fa-check-circle" aria-hidden="true" height="10 px"></i></span>
+                </h5>
+              </article>
+            </div>
             <hr />
              {/* <AddToCart product={product} /> */}
           </section>
@@ -104,6 +123,13 @@ const Wrapper = styled.main`
       font-size: 1.25rem;
     }
   }
+
+  article {
+    border: 1px solid var(--clr-grey-8);
+    border-radius: var(--radius);
+    padding: 1.5rem 3rem;
+  }
+  
 `;
 
 export default SingleProductPage;

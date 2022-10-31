@@ -3,8 +3,10 @@ import styled from 'styled-components'
 import { formatPrice } from '@utils/helpers'
 import { FaSearch } from 'react-icons/fa'
 import { Link } from 'react-router-dom'
+import { useCartContext } from '@contexts/CartContext'
 
 const Product = ({Thumb, Name, Price, ID, Brand}) => {
+  const {clearCart} = useCartContext();
   return <Wrapper>
     <div className="container">
       

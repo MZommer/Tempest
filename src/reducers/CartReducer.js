@@ -20,12 +20,9 @@ function addToCart(state, action) {
     }
     const newItem = {
         id: id,
-        name: product.Name,
-        brand: product.Brand,
         amount,
-        image: product.Thumb,
-        price: product.Price,
         max: product.Stock,
+        ...product,
     };
     return { ...state, cart: [...state.cart, newItem] };
 }

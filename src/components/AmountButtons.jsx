@@ -1,14 +1,17 @@
 import React from 'react';
 import styled from 'styled-components';
+import { getTotalAmount } from '@utils/helpers';
 import { FaPlus, FaMinus } from 'react-icons/fa';
 
-const AmountButtons = ({ increase, decrease, amount }) => {
+const AmountButtons = ({ increase, decrease, amount, ServingSize}) => {
+  const totalAmount = getTotalAmount(amount, ServingSize);
   return (
     <Wrapper className='amount-btns'>
       <button type='button' className='amount-btn' onClick={decrease}>
         <FaMinus />
       </button>
       <h2 className='amount'>{amount}</h2>
+      <h5 className='amount'>{totalAmount}</h5>
       <button type='button' className='amount-btn' onClick={increase}>
         <FaPlus />
       </button>

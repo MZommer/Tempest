@@ -32,9 +32,9 @@ const AddToCart = ({ product }) => {
   return (
     <Wrapper>
       <div className='btn-container'>
-        <AmountButtons amount={amount} increase={increase} decrease={decrease} />
+        <AmountButtons amount={amount} increase={increase} ServingSize={product.NutritionalTable.ServingSize} decrease={decrease} />
         <Link to='/cart' className='btn' onClick={() => addToCart(id, amount, product)}>
-          add to cart
+          Agregar al carrito
         </Link>
       </div>
     </Wrapper>
@@ -82,6 +82,7 @@ const Wrapper = styled.section`
   }
 
   .btn {
+    text-align: center;
     margin-top: 1rem;
     width: 140px;
   }

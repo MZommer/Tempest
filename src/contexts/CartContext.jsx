@@ -43,7 +43,6 @@ export const CartProvider = ({ children }) => {
   }, [state.cart]);
 
   const setInitialMoney = initialMoney => {
-    console.log(initialMoney)
     dispatch({ type: SET_INITAL_MONEY, payload: {initialMoney}})
   }
 

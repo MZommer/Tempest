@@ -1,3 +1,7 @@
+import { create, all } from 'mathjs'
+
+const math = create(all, {});
+
 export const formatPrice = (number) => {
   return Intl.NumberFormat('en-US', {
     style: 'currency',
@@ -13,3 +17,10 @@ export const getUniqueValues = (data, type) => {
   }
   return ['all', ...new Set(unique)];
 };
+
+
+export const getTotalAmount = (amount, ServingSize) => {
+  const unit = math.unit(ServingSize);
+  const total = math.multiply(unit, amount);
+  return total.toString();
+}

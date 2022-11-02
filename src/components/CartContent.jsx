@@ -1,6 +1,5 @@
 import styled from 'styled-components';
 import { useCartContext } from '@contexts/CartContext';
-import { Link } from 'react-router-dom';
 import CartColumns from './CartColumns';
 import CartItem from './CartItem.jsx';
 import CartTotals from './CartTotals';
@@ -10,16 +9,11 @@ const CartContent = () => {
   return (
     <Wrapper className='section section-center'>
       <CartColumns />
-      {cart.map((item) => {
-        return <CartItem key={item.id} {...item} />;
-      })}
+      {cart.map((item, index) => <CartItem key={index} {...item} />)}
       <hr />
       <div className='link-container'>
-        <Link to='/products' className='link-btn'>
-          continue shopping
-        </Link>
         <button type='button' className='link-btn clear-btn' onClick={clearCart}>
-          clear shopping cart
+          Borrar carrito
         </button>
       </div>
       <CartTotals />

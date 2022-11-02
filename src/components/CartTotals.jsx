@@ -1,37 +1,23 @@
 import styled from 'styled-components';
 import { useCartContext } from '@contexts/CartContext';
-//import { useUserContext } from '../context/user_context';
 import { formatPrice } from '@utils/helpers';
 import { Link } from 'react-router-dom';
 
 const CartTotals = () => {
-  const { total_amount, shipping_fee } = useCartContext();
-  //const { myUser, loginWithRedirect } = useUserContext();
-  let myUser, loginWithRedirect;
+  const { total_amount, cart } = useCartContext();
   return (
     <Wrapper>
       <div>
         <article>
-          <h5>
-            subtotal : <span>{formatPrice(total_amount)}</span>
-          </h5>
-          <p>
-            shipping fee : <span>{formatPrice(shipping_fee)}</span>
-          </p>
+          {cart.map(item => <p> {item.Name} ({item.amount}): <span>{formatPrice(item.Price*item.amount)}</span> </p>)}
           <hr />
           <h4>
-            order total : <span>{formatPrice(total_amount + shipping_fee)}</span>
+            Precio total : <span>{formatPrice(total_amount)}</span>
           </h4>
         </article>
-        {myUser ? (
-          <Link to='/checkout' className='btn'>
-            proceed to checkout
-          </Link>
-        ) : (
-          <button className='btn' type='button' onClick={loginWithRedirect}>
-            login
-          </button>
-        )}
+        <Link to='/checkout' className='btn'>
+          Comprar
+        </Link>
       </div>
     </Wrapper>
   );
@@ -50,7 +36,7 @@ const Wrapper = styled.section`
   h5,
   p {
     display: grid;
-    grid-template-columns: 200px 1fr;
+    grid-template-columns: 300px 1fr;
   }
   p {
     text-transform: capitalize;

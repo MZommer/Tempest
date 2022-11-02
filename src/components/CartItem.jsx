@@ -32,7 +32,19 @@ const CartItem = ({ id, Thumb, Name, Price, amount }) => {
   );
 };
 
+//https://codepen.io/EdgarHan/pen/rNVBQJR
+
 const Wrapper = styled.article`
+
+
+
+
+
+
+
+
+
+
   .subtotal {
     display: none;
   }

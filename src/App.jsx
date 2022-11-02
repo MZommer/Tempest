@@ -1,6 +1,6 @@
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import { Toaster } from 'react-hot-toast';
-
+import ApexCharts from 'apexcharts';
 import Navbar from "@components/Navbar";
 import Sidebar from "@components/Sidebar";
 import Footer from "@components/Footer";

@@ -61,6 +61,9 @@ const SingleProductPage = () => {
                 <h3>Tabla nutricional </h3>
                 <hr/>
                 <p>
+                  Contenido Neto : {NutritionalTable.ServingSize}
+                </p>
+                <p>
                   Hidratos de Carbono :  {NutritionalTable.Carbohydrates} g
                 </p>
                 <p>

@@ -15,7 +15,7 @@ import { useTempestContext } from "@contexts/TempestContext";
 
 function guardedElement(element, isInitialized) {
     return !isInitialized
-        ? <Navigate replace to="/setSpace" />
+        ? <SpaceScreen />
         : element
 
 }
@@ -23,7 +23,7 @@ function guardedElement(element, isInitialized) {
 export default function App() {
     const { isInitialized } = useTempestContext();
     return (
-        <Router location="/setSpace">
+        <Router>
             <Toaster />
             <Navbar />
             <Sidebar />

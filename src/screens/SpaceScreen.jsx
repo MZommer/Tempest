@@ -1,22 +1,23 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import toast from 'react-hot-toast'
 import styled from 'styled-components';
 import Loading from '@components/Loading';
 import { useTempestContext } from "@contexts/TempestContext";
-import { useNavigate } from 'react-router-dom'
+import { useNavigate } from "react-router-dom";
+
 export default function SpaceScreen() {
+    const navigate = useNavigate();
     const { isLoading, isInitialized, configError, getConfig, resetState } = useTempestContext();
     const [space, setSpace] = useState("");
-    const navigate = useNavigate();
-    if (isInitialized) {
-        toast.success("Grupo Valido! Escanea de vuelta el qr!")
-        //navigate(-1)
+
+    if (isLoading) {
+        return <Loading />;
     }
 
     if (configError) {
         setInterval(() => {
             resetState()
-            window.location = "/setSpace"
+            navigate(0)
         }, 3000)
         return (
             <div className="section section-center text-center">
@@ -24,9 +25,12 @@ export default function SpaceScreen() {
             </div>
         )
     }
-    if (isLoading) {
-        return <Loading />;
-    }
+
+    useEffect(() => {
+        if (isInitialized) {
+            console.log("Use Effect isinit")
+            navigate(0)
+        }}, [isInitialized])
 
     return (
         <Wrapper className='page-100'>

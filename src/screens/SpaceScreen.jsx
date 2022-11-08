@@ -15,6 +15,7 @@ export default function SpaceScreen() {
     }
 
     if (configError) {
+        toast.error("Grupo invalido!")
         setInterval(() => {
             resetState()
             navigate(0)
@@ -26,7 +27,7 @@ export default function SpaceScreen() {
         )
     }
     if (isInitialized) {
-        console.log("Use Effect isinit")
+        toast.success("Grupo valido!")
         navigate(0)
     }
     return (

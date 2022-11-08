@@ -43,9 +43,15 @@ export const TempestProvider = ({ children }) => {
                 SpaceID,
             }
         })  .then(res => res.data)
+            .then(config => {
+                if (!config.configError){
+                    dispatch({ type: SET_TEMPEST_CONFIG, payload: config});
+                    setInitialMoney(config.InitialMoney)
+                } 
+            })
             .catch(err => dispatch({ type: TEMPEST_CONFIG_ERROR}))
-        dispatch({ type: SET_TEMPEST_CONFIG, payload: config});
-        setInitialMoney(config.InitialMoney)
+            
+          
     }
 
     const resetState = () => {

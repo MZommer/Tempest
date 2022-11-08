@@ -25,23 +25,23 @@ export default function SpaceScreen() {
             </div>
         )
     }
-
-    useEffect(() => {
-        if (isInitialized) {
-            console.log("Use Effect isinit")
-            navigate(0)
-        }}, [isInitialized])
-
+    if (isInitialized) {
+        console.log("Use Effect isinit")
+        navigate(0)
+    }
     return (
         <Wrapper className='page-100'>
             <div className='empty'>
                 <h1>Escriba su grupo</h1>
-                <form>
+                <form onSubmit={event=> { 
+                    event.preventDefault();
+                    getConfig(space)
+                }}>
                     <div className='form-control'>
                         <input type='text' onChange={event => setSpace(event.target.value)} name='text' placeholder='Ingrese su grupo' className='search-input' />
                     </div>
+                    <button type="submit" className="btn">Enviar</button>
                 </form>
-                <button onClick={() => getConfig(space)} className="btn">Enviar</button>
             </div>
         </Wrapper>
     )

@@ -11,10 +11,10 @@ const AmountButtons = ({ increase, decrease, amount, ServingSize}) => {
         <FaMinus />
       </button>
       <h2 className='amount'>{amount}</h2>
-      <h5 className='amount'>{totalAmount}</h5>
       <button type='button' className='amount-btn' onClick={increase}>
         <FaPlus />
       </button>
+      <h5 className='amount'>{totalAmount}</h5>
     </Wrapper>
   );
 };
@@ -41,6 +41,9 @@ const Wrapper = styled.div`
   }
   h2 {
     margin-bottom: 0;
+  }
+  .amount {
+    text-align: center;
   }
 `;
 

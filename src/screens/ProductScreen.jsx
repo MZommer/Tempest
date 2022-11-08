@@ -37,11 +37,6 @@ const SingleProductPage = () => {
     return <Error type='single-product' />;
   }
 
-
-  console.log("Product: ")
-  console.log(product.NutritionalTable)
-  let stock, sku, company;
-
   return (
     <Wrapper>
       <PageHero title={product.Name} product />

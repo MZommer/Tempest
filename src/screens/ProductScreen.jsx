@@ -20,16 +20,7 @@ const SingleProductPage = () => {
     // eslint-disable-next-line
   }, [id]);
 
-  useEffect(() => {
-    if (error) {
-      setTimeout(() => {
-        navigate('/');
-      }, 3000);
-    }
-    // eslint-disable-next-line
-  }, [error]);
-
-  if (loading || !NutritionalTable) {
+  if (loading || !NutritionalTable || error) {
     return <Loading />;
   }
 
@@ -53,31 +44,29 @@ const SingleProductPage = () => {
 
             <div>
               <article>
-                <h3>Tabla nutricional </h3>
+                <h3>Composicion Centecimal</h3>
+                <h5 style={{opacity: 0.7}}>Valores por 100g</h5>
                 <hr/>
                 <p>
-                  Contenido Neto : {NutritionalTable.ServingSize}
+                  Hidratos de Carbono :  {NutritionalTable.Carbohydrates}
                 </p>
                 <p>
-                  Hidratos de Carbono :  {NutritionalTable.Carbohydrates} g
+                  Proteìnas: {NutritionalTable.Protein} 
                 </p>
                 <p>
-                  Proteìnas: {NutritionalTable.Protein} g 
+                  Grasas:   {NutritionalTable.TotalFat}
                 </p>
                 <p>
-                  Grasas:   {NutritionalTable.Carbohydrates} g
+                  Fibra:   {NutritionalTable.Fiber}
                 </p>
                 <p>
-                  Fibra:   {NutritionalTable.Fiber} g
+                  Sodio:  {NutritionalTable.Sodium}
                 </p>
                 <p>
-                  Sodio:  {NutritionalTable.Sodium} mg
+                  Calcio:   {NutritionalTable.Calcium}
                 </p>
                 <p>
-                  Calcio:   {NutritionalTable.Calcium} mg
-                </p>
-                <p>
-                  Hierro:   {NutritionalTable.Iron} mg
+                  Hierro:   {NutritionalTable.Iron}
                 </p>
               </article>
             </div>

@@ -18,7 +18,7 @@ const CartContent = () => {
       <hr />
       <div className='containerBox'>
         <div className='link-container'>
-          <button type='button' className='link-btn clear-btn' onClick={clearCart}>
+          <button type='button' style={{marginTop: 20 }} className='link-btn clear-btn' onClick={clearCart}>
             Borrar carrito
           </button>
         </div>
@@ -57,8 +57,9 @@ const CartContent = () => {
 };
 const Wrapper = styled.section`
   .link-container {
-    justify-content: 5%;
+    justify-content: 50%;
   }
+
   .containerBox {
     display: flex;
     margin-top: 2rem;

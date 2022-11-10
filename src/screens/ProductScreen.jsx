@@ -54,7 +54,7 @@ const SingleProductPage = () => {
                   Hidratos de Carbono :  {NutritionalTable.Carbohydrates}
                 </p>
                 <p>
-                  Proteìnas: {NutritionalTable.Protein} 
+                  Proteínas: {NutritionalTable.Protein} 
                 </p>
                 <p>
                   Grasas:   {NutritionalTable.TotalFat}

@@ -83,7 +83,7 @@ const CartPercenteges = () => {
   h5,
   p {
     display: grid;
-    grid-template-columns: 300px 1fr;
+    grid-template-columns: 260px 1fr;
   }
   p {
     text-transform: capitalize;

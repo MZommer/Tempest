@@ -20,7 +20,7 @@ const Nav = () => {
           <Link to='/'>
             <img src={Logo} className="logo" alt='Tempest Logo' />
           </Link>
-          <button type='button' className='nav-toggle' onClick={openSidebar}>
+          <button type='button' className='nav-toggle' onClick={openSidebar} >
             <FaBars />
           </button>
         </div>
@@ -50,23 +50,22 @@ const NavContainer = styled.nav`
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom:2%;
+  margin-bottom:9%;
   .nav-center {
     width: 400vw;
     height:90px;
     max-width: var(--max-width);
   }
-  .logo {
+  .logo{
+    margin-left: -50px;
     
-   
   }
   .nav-header {
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: space-around;
     img {
       width: 120px;
-      margin-left: -15px;
     }
   }
   .nav-toggle {
@@ -76,7 +75,9 @@ const NavContainer = styled.nav`
     cursor: pointer;
     svg {
       font-size: 2rem;
+
     }
+    
   }
   .nav-links {
     display: none;
@@ -113,6 +114,7 @@ const NavContainer = styled.nav`
     }
     .cart-btn-wrapper {
       display: grid;
+      
     }
   }
 `;

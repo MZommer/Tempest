@@ -32,15 +32,6 @@ const CartItem = ({ id, Thumb, Name, Price, amount, NutritionalTable }) => {
 
 const Wrapper = styled.article`
 
-
-
-
-
-
-
-
-
-
   .subtotal {
     display: none;
   }

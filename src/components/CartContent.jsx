@@ -3,7 +3,7 @@ import { useCartContext } from '@contexts/CartContext';
 import CartColumns from './CartColumns';
 import CartItem from './CartItem.jsx';
 import CartTotals from './CartTotals';
-
+import CartPercenteges from './CartPercenteges';
 import { CircularProgressbar } from 'react-circular-progressbar';
 import 'react-circular-progressbar/dist/styles.css';
 import { CircularProgressbarWithChildren } from 'react-circular-progressbar';
@@ -18,39 +18,15 @@ const CartContent = () => {
       <hr />
       <div className='containerBox'>
         <div className='link-container'>
-          <button type='button' style={{marginTop: 20 }} className='link-btn clear-btn' onClick={clearCart}>
+          <button type='button' className='link-btn clear-btn' onClick={clearCart}>
             Borrar carrito
           </button>
         </div>
-        <div style={{ width: 70, height: 70, marginTop:4, marginLeft:20 }}>
-          <CircularProgressbarWithChildren value={66}>
-            {/* Put any JSX content in here that you'd like. It'll be vertically and horizonally centered. */}
-            <div style={{ fontSize: 12, marginTop: -2 , textAlign:'center'}}>
-            HC <br/>
-              <strong style={{color: '#005227'}}>66%</strong> 
-            </div>
-          </CircularProgressbarWithChildren>
-        </div>
-        <div style={{ width: 70, height: 70, marginTop:4, marginLeft:3 }}>
-          <CircularProgressbarWithChildren value={100}>
-            {/* Put any JSX content in here that you'd like. It'll be vertically and horizonally centered. */}
-            <div style={{ fontSize: 12, marginTop: -2, textAlign:'center'}}>
-            Proteínas <br/>
-              <strong style={{color: '#005227'}}>100%</strong> 
-            </div>
-          </CircularProgressbarWithChildren>
-        </div>
-        <div style={{ width: 70, height: 70, marginTop:4, marginLeft:3 }}>
-          <CircularProgressbarWithChildren value={80}>
-            {/* Put any JSX content in here that you'd like. It'll be vertically and horizonally centered. */}
-            <div style={{ fontSize: 12, marginTop: -2, textAlign:'center'}}>
-            Grasas <br/>
-              <strong style={{color: '#005227'}}>80%</strong> 
-            </div>
-          </CircularProgressbarWithChildren>
-        </div>
       </div>
-      
+
+
+        
+      <CartPercenteges />      
       <CartTotals />
     </Wrapper>
   );

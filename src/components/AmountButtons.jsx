@@ -14,14 +14,15 @@ const AmountButtons = ({ increase, decrease, amount, NetWeight}) => {
       <button type='button' className='amount-btn' onClick={increase}>
         <FaPlus />
       </button>
-      <h5 className='amount'>{totalAmount}</h5>
+      <span></span> {/*Col to center the ammount*/}
+      <span><h5 className='amount'>{totalAmount}</h5></span>
     </Wrapper>
   );
 };
 
 const Wrapper = styled.div`
   display: grid;
-  width: 140px;
+  width: 170px;
   justify-items: center;
   grid-template-columns: repeat(3, 1fr);
   align-items: center;

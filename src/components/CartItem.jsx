@@ -28,8 +28,6 @@ const CartItem = ({ id, Thumb, Name, Price, amount, NutritionalTable }) => {
   );
 };
 
-//https://codepen.io/EdgarHan/pen/rNVBQJR
-
 const Wrapper = styled.article`
 
   .subtotal {

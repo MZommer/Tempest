@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 
 
 const CartTotals = () => {
-  const { total_amount, cart } = useCartContext();
+  const { getTotalPrice, cart } = useCartContext();
 
   return (
     <Wrapper>
@@ -14,7 +14,7 @@ const CartTotals = () => {
           {cart.map(item => <p> {item.Name} ({item.amount}): <span>{formatPrice(item.Price*item.amount)}</span> </p>)}
           <hr />
           <h4>
-            Precio total : <span>{formatPrice(total_amount)}</span>
+            Precio total : <span>{formatPrice(getTotalPrice())}</span>
           </h4>
         </article>
         <Link to='/checkout' className='btn'>

@@ -45,8 +45,12 @@ export const CartProvider = ({ children }) => {
   const getAmountOfNutrients = () => {
     return getTotalNutrients(state.cart)
   }
+  const getTotalPrice = () => {
+    const price = state.cart.reduce((buffer, product) => buffer + (product.amount*product.Price), 0)
+    return price
+  }
 
-  return <CartContext.Provider value={{ ...state, getAmountOfNutrients, addToCart, removeItem, toggleAmount, clearCart, setInitialMoney }}>{children}</CartContext.Provider>;
+  return <CartContext.Provider value={{ ...state, getTotalPrice, getAmountOfNutrients, addToCart, removeItem, toggleAmount, clearCart, setInitialMoney }}>{children}</CartContext.Provider>;
 };
 // make sure use
 export const useCartContext = () => {

@@ -84,7 +84,7 @@ const Wrapper = styled.section`
   .btn {
     text-align: center;
     margin-top: 1rem;
-    width: 140px;
+    width: 160px;
   }
 `;
 export default AddToCart;

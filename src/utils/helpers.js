@@ -1,6 +1,6 @@
 import { create, all, prod } from 'mathjs'
 
-const math = create(all, {});
+const math = create(all, {number: "BigNumber"});
 
 export const formatPrice = (number) => {
   return Intl.NumberFormat('en-US', {
@@ -30,21 +30,21 @@ export const getTotalNutrients = products => {
   const nutrients = {}
   for (const product of products) {
     const multiplier = math.divide(math.multiply(math.unit(product.NutritionalTable.NetWeight), product.amount), math.unit("100g"));
+    console.log("Multiplier", multiplier.toString())
     for (const [key, value] of Object.entries(product.NutritionalTable)) {
       if (value.endsWith("kcal"))
         continue
       const actualValue = nutrients[key];
       const unit = math.unit(value)
       if (actualValue)
-        nutrients[key] = math.sum(math.multiply(unit, multiplier), actualValue)
+        nutrients[key] = math.add(math.multiply(unit, multiplier), actualValue)
       else
         nutrients[key] = math.multiply(unit, multiplier)      
     }
   }
   for (const [key, value] of Object.entries(nutrients)){
-    console.log(value.value, math.round(value.value, 5))
-    value.value = math.round(value.value, 3)
-    nutrients[key] = value.toString()
+    value.value = math.round(value.value, 6)
+    console.log(key, value.toString())
   }
   return nutrients;
 }

@@ -5,7 +5,7 @@ import CartContent from '@components/CartContent';
 import PageHero from '@components/PageHero';
 
 const CartPage = () => {
-  const { cart } = useCartContext();
+  const { cart, getAmountOfNutrients } = useCartContext();
   if (cart.length < 1) {
     return (
       <Wrapper className='page-100'>

@@ -3,8 +3,8 @@ import styled from 'styled-components';
 import { getTotalAmount } from '@utils/helpers';
 import { FaPlus, FaMinus } from 'react-icons/fa';
 
-const AmountButtons = ({ increase, decrease, amount, ServingSize}) => {
-  const totalAmount = getTotalAmount(amount, ServingSize);
+const AmountButtons = ({ increase, decrease, amount, NetWeight}) => {
+  const totalAmount = getTotalAmount(amount, NetWeight);
   return (
     <Wrapper className='amount-btns'>
       <button type='button' className='amount-btn' onClick={decrease}>

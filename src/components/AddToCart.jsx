@@ -32,7 +32,7 @@ const AddToCart = ({ product }) => {
   return (
     <Wrapper>
       <div className='btn-container'>
-        <AmountButtons amount={amount} increase={increase} ServingSize={product.NutritionalTable.ServingSize} decrease={decrease} />
+        <AmountButtons amount={amount} increase={increase} NetWeight={product.NutritionalTable.NetWeight} decrease={decrease} />
         <Link to='/cart' className='btn' onClick={() => addToCart(ID, amount, product)}>
           Agregar al carrito
         </Link>

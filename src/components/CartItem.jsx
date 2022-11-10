@@ -19,7 +19,7 @@ const CartItem = ({ id, Thumb, Name, Price, amount, NutritionalTable }) => {
         </div>
       </div>
       <h5 className='price'>{formatPrice(Price)}</h5>
-      <AmountButtons amount={amount} increase={increase} ServingSize={NutritionalTable.ServingSize} decrease={decrease} />
+      <AmountButtons amount={amount} increase={increase} NetWeight={NutritionalTable.NetWeight} decrease={decrease} />
       <h5 className='subtotal'>{formatPrice(Price * amount)}</h5>
       <button type='button' className='remove-btn' onClick={() => removeItem(id)}>
         <FaTrash />

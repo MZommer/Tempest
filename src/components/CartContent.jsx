@@ -11,8 +11,6 @@ import { CircularProgressbarWithChildren } from 'react-circular-progressbar';
 
 const CartContent = () => {
   const { cart, clearCart } = useCartContext();
-  const value = 0.66;
-
   return (
     <Wrapper className='section section-center'>
       <CartColumns />

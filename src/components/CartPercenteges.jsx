@@ -7,14 +7,13 @@ import 'react-circular-progressbar/dist/styles.css';
 import { CircularProgressbarWithChildren } from 'react-circular-progressbar';
 const ProgressBar = ({value, filledValue, text}) => {
     const perc = (value/filledValue)*100
-    let color = perc >= 60 ? 'yellow' : 'red'
-    color = perc >= 100 ? 'green' : color
+    let color = perc >= 98 ? 'green' : 'red'
     return  (
-        <div style={{ width: 60, height: 60 }}>
-            <CircularProgressbarWithChildren value={perc}>
+        <div style={{ width: 60, height: 60 }}> 
+            <CircularProgressbarWithChildren value={perc}  style={{color}}>
                 {/* Put any JSX content in here that you'd like. It'll be vertically and horizonally centered. */}
                 <div style={{ fontSize: 12, textAlign:'center'}}>
-                    {text}<br></br><strong style={{color: '#005227'}}> {Math.round(perc)}%</strong> 
+                    {text}<br></br><strong style={{color}}> {Math.round(perc)}%</strong> 
                     
                 </div>
             </CircularProgressbarWithChildren>

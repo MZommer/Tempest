@@ -3,12 +3,14 @@ import { useCartContext } from '@contexts/CartContext';
 import { formatPrice } from '@utils/helpers';
 import { Link } from 'react-router-dom';
 
+
 const CartTotals = () => {
   const { total_amount, cart } = useCartContext();
+
   return (
     <Wrapper>
       <div>
-        <article>
+        <article>           
           {cart.map(item => <p> {item.Name} ({item.amount}): <span>{formatPrice(item.Price*item.amount)}</span> </p>)}
           <hr />
           <h4>
@@ -24,13 +26,13 @@ const CartTotals = () => {
 };
 
 const Wrapper = styled.section`
-  margin-top: 3rem;
+  margin-top: 1rem;
   display: flex;
   justify-content: center;
   article {
     border: 1px solid var(--clr-grey-8);
     border-radius: var(--radius);
-    padding: 1.5rem 3rem;
+    padding: 1.5rem 0.8rem;
   }
   h4,
   h5,

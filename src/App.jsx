@@ -10,6 +10,8 @@ import SpaceScreen from '@screens/SpaceScreen';
 import ProductScreen from '@screens/ProductScreen';
 import ProductsPage from '@screens/ProductsPage';
 
+import { CircularProgressbar } from 'react-circular-progressbar';
+import 'react-circular-progressbar/dist/styles.css';
 
 import { useTempestContext } from "@contexts/TempestContext";
 

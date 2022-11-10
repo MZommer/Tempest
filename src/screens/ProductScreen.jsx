@@ -9,12 +9,15 @@ import ProductImages from '@components/ProductImages';
 import styled from 'styled-components';
 import AddToCart from '@components/AddToCart';
 
+
+
+
 const SingleProductPage = () => {
   const { id } = useParams();
   const navigate = useNavigate();
   const { single_product_loading: loading, single_product_error: error, single_product: product, fetchSingleProduct } = useProductsContext();
   const { Name, Brand, Price, Description, Thumb, Cover, NutritionalTable} = product;
-  
+
   useEffect(() => {
     fetchSingleProduct(id);
     // eslint-disable-next-line
@@ -70,7 +73,9 @@ const SingleProductPage = () => {
                 </p>
               </article>
             </div>
+
             <AddToCart product={product} />
+            
           </section>
         </div>
       </div>

@@ -5,7 +5,8 @@ import CartItem from './CartItem.jsx';
 import CartTotals from './CartTotals';
 
 const CartContent = () => {
-  const { cart, clearCart } = useCartContext();
+  const { cart, clearCart, getAmountOfNutrients } = useCartContext();
+  console.log(getAmountOfNutrients())
   return (
     <Wrapper className='section section-center'>
       <CartColumns />

@@ -9,6 +9,8 @@ import CartScreen from '@screens/CartScreen';
 import SpaceScreen from '@screens/SpaceScreen';
 import ProductScreen from '@screens/ProductScreen';
 import ProductsPage from '@screens/ProductsPage';
+import HomeScreen from '@screens/HomeScreen';
+
 
 import { CircularProgressbar } from 'react-circular-progressbar';
 import 'react-circular-progressbar/dist/styles.css';
@@ -34,6 +36,7 @@ export default function App() {
                 <Route path="cart" element={guardedElement(<CartScreen />, isInitialized)} />
                 <Route path="products" element={<ProductsPage />} />
                 <Route path="setSpace" element={<SpaceScreen />} />
+                <Route path="/" element={<HomeScreen />} />
             </Routes>
 
             <Footer />

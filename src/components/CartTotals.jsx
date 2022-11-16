@@ -3,6 +3,11 @@ import { useCartContext } from '@contexts/CartContext';
 import { formatPrice } from '@utils/helpers';
 import { Link } from 'react-router-dom';
 
+const TotalItem = ({Name, amount, Price}) =>{
+  return (
+    <p> {Name} ({amount}): <span>{formatPrice(Price*amount)}</span> </p>
+  )
+}
 
 const CartTotals = () => {
   const { getTotalPrice, cart } = useCartContext();
@@ -11,7 +16,7 @@ const CartTotals = () => {
     <Wrapper>
       <div>
         <article>           
-          {cart.map(item => <p> {item.Name} ({item.amount}): <span>{formatPrice(item.Price*item.amount)}</span> </p>)}
+          {cart.map((item, index) => <TotalItem key={index} {...item}/>)}
           <hr />
           <h4>
             Precio total : <span>{formatPrice(getTotalPrice())}</span>

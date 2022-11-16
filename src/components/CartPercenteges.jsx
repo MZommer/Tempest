@@ -1,13 +1,12 @@
 import styled from 'styled-components';
 import { useCartContext } from '@contexts/CartContext';
-import { formatPrice } from '@utils/helpers';
-import { Link } from 'react-router-dom';
-import { CircularProgressbar } from 'react-circular-progressbar';
+import { useTempestContext } from '@contexts/TempestContext';
 import 'react-circular-progressbar/dist/styles.css';
 import { CircularProgressbarWithChildren } from 'react-circular-progressbar';
-const ProgressBar = ({value, filledValue, text}) => {
+const ProgressBar = ({value, filledValue, text, accept}) => {
+    const isOk = accept(value, filledValue)
     const perc = (value/filledValue)*100
-    let color = perc >= 98 ? 'green' : 'red'
+    let color = isOk ? 'green' : 'red'
     return  (
         <div style={{ width: 60, height: 60 }}> 
             <CircularProgressbarWithChildren value={perc}  style={{color}}>
@@ -25,7 +24,7 @@ const ProgressBar = ({value, filledValue, text}) => {
 const CartPercenteges = () => {
     const {getAmountOfNutrients} = useCartContext();
     const nutrients = getAmountOfNutrients();
-
+    const {CarbRange, ProteinRange, FatRange, IronRange} = useTempestContext();
     return (
       <Wrapper>
         <div>
@@ -36,7 +35,8 @@ const CartPercenteges = () => {
                     <ProgressBar 
                         text={nutrients.Carbohydrates.toString()}
                         value={nutrients.Carbohydrates.toNumber()} 
-                        filledValue={275}/>
+                        filledValue={CarbRange}
+                        accept={(value, filledValue) => value >= filledValue-5 && value <= filledValue+5}/>
                 </span>
             </h5>
             <h5 style={{ alignItems: 'center' }}>Proteínas: 
@@ -44,7 +44,8 @@ const CartPercenteges = () => {
                     <ProgressBar 
                         text={nutrients.Protein.toString()}
                         value={nutrients.Protein.toNumber()} 
-                        filledValue={75}/>
+                        filledValue={ProteinRange}
+                        accept={(value, filledValue) => value >= filledValue-5 && value <= filledValue+5}/>
                 </span>
             </h5>
             <h5 style={{ alignItems: 'center' }}>Grasas: 
@@ -52,7 +53,8 @@ const CartPercenteges = () => {
                     <ProgressBar 
                         text={nutrients.TotalFat.toString()}
                         value={nutrients.TotalFat.toNumber()} 
-                        filledValue={66.67}/>
+                        filledValue={FatRange}
+                        accept={(value, filledValue) => value >= filledValue-5 || value <= filledValue+5}/>
                 </span>
             </h5>
             <h5 style={{ alignItems: 'center' }}>Hierro: 
@@ -60,7 +62,8 @@ const CartPercenteges = () => {
                     <ProgressBar 
                         text={nutrients.Iron.toString()}
                         value={nutrients.Iron.toNumber()} 
-                        filledValue={15}/>
+                        filledValue={IronRange}
+                        accept={(value, filledValue) => value >= filledValue}/>
                 </span>
             </h5>
           </article>

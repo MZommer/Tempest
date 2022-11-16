@@ -48,3 +48,17 @@ export const getTotalNutrients = products => {
   }
   return nutrients;
 }
+
+export function calculateRanges(VCT) {
+    const percentages = {
+      Carbohydrates: 55,
+      Protein: 15,
+      Fat: 30,
+    }
+
+    const CarbRange    = (VCT * percentages.Carbohydrates / 100) / 4
+    const ProteinRange = (VCT * percentages.Protein / 100) / 4
+    const FatRange     = (VCT * percentages.Fat / 100) / 9
+    // MISSING IRON CALCULATION
+    return {CarbRange, ProteinRange, FatRange}
+}

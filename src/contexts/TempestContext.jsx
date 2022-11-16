@@ -7,8 +7,10 @@ import {
     SET_TEMPEST_CONFIG,
     TEMPEST_CONFIG_ERROR,
     RESET_TEMPEST_STATE,
+    SET_RANGES,
 } from '@actions';
 import { TCS_URL } from "@utils/constants";
+import { calculateRanges } from "@utils/helpers";
 const getLocalStorage = () => {
     const config = localStorage.getItem('config');
     if (config)
@@ -21,7 +23,11 @@ const getLocalStorage = () => {
         SpaceID: "UAT",
         EnvID: "DEV",
         Currency: "ARS",
-    
+        VCT: 2000,
+        CarbRange: 275,
+        ProteinRange: 75,
+        FatRange: 66.67,
+        IronRange: 15,
     }
 }
 
@@ -47,6 +53,7 @@ export const TempestProvider = ({ children }) => {
                 if (!config.configError){
                     dispatch({ type: SET_TEMPEST_CONFIG, payload: config});
                     setInitialMoney(config.InitialMoney)
+                    dispatch({ type: SET_RANGES, payload: calculateRanges(config.VCT) })
                 } 
             })
             .catch(err => dispatch({ type: TEMPEST_CONFIG_ERROR}))

@@ -7,7 +7,6 @@ import { Link } from 'react-router-dom'
 const Product = ({Thumb, Name, Price, ID, Brand}) => {
   const openQRModal = () => {
     const url = window.location.href + "/" + ID
-    console.log(url)
     swal({
       title: Name,
       button: "👍",

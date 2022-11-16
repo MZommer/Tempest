@@ -30,7 +30,6 @@ export const getTotalNutrients = products => {
   const nutrients = {}
   for (const product of products) {
     const multiplier = math.divide(math.multiply(math.unit(product.NutritionalTable.NetWeight), product.amount), math.unit("100g"));
-    console.log("Multiplier", multiplier.toString())
     for (const [key, value] of Object.entries(product.NutritionalTable)) {
       if (value.endsWith("kcal"))
         continue
@@ -44,7 +43,6 @@ export const getTotalNutrients = products => {
   }
   for (const [key, value] of Object.entries(nutrients)){
     value.value = math.round(value.value, 6)
-    console.log(key, value.toString())
   }
   return nutrients;
 }

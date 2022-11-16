@@ -55,7 +55,7 @@ const CartPercenteges = () => {
                         text={nutrients.TotalFat.toString()}
                         value={nutrients.TotalFat.toNumber()} 
                         filledValue={FatRange}
-                        accept={(value, filledValue) => value >= filledValue-5 || value <= filledValue+5}/>
+                        accept={(value, filledValue) => value >= filledValue-range_threshold && value <= filledValue+range_threshold}/>
                 </span>
             </h5>
             <h5 style={{ alignItems: 'center' }}>Hierro: 

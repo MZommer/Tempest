@@ -35,7 +35,7 @@ const CartPercenteges = () => {
                 <span>
                     <ProgressBar 
                         text={nutrients.Carbohydrates.toString()}
-                        value={nutrients.Carbohydrates.toNumber()} 
+                        value={nutrients.Carbohydrates.toNumber()}
                         filledValue={CarbRange}
                         accept={(value, filledValue) => value >= filledValue-range_threshold && value <= filledValue+range_threshold}/>
                 </span>

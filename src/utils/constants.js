@@ -15,3 +15,5 @@ export const links = [
 export const TCS_URL = "https://TCS.matiaszommer.repl.co"
 
 export const products_url = TCS_URL + "/v1/products"
+
+export const range_threshold = 5

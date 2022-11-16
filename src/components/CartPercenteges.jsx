@@ -3,6 +3,7 @@ import { useCartContext } from '@contexts/CartContext';
 import { useTempestContext } from '@contexts/TempestContext';
 import 'react-circular-progressbar/dist/styles.css';
 import { CircularProgressbarWithChildren } from 'react-circular-progressbar';
+import { range_threshold } from '@utils/constants';
 const ProgressBar = ({value, filledValue, text, accept}) => {
     const isOk = accept(value, filledValue)
     const perc = (value/filledValue)*100
@@ -36,7 +37,7 @@ const CartPercenteges = () => {
                         text={nutrients.Carbohydrates.toString()}
                         value={nutrients.Carbohydrates.toNumber()} 
                         filledValue={CarbRange}
-                        accept={(value, filledValue) => value >= filledValue-5 && value <= filledValue+5}/>
+                        accept={(value, filledValue) => value >= filledValue-range_threshold && value <= filledValue+range_threshold}/>
                 </span>
             </h5>
             <h5 style={{ alignItems: 'center' }}>Proteínas: 
@@ -45,7 +46,7 @@ const CartPercenteges = () => {
                         text={nutrients.Protein.toString()}
                         value={nutrients.Protein.toNumber()} 
                         filledValue={ProteinRange}
-                        accept={(value, filledValue) => value >= filledValue-5 && value <= filledValue+5}/>
+                        accept={(value, filledValue) => value >= filledValue-range_threshold && value <= filledValue+range_threshold}/>
                 </span>
             </h5>
             <h5 style={{ alignItems: 'center' }}>Grasas: 

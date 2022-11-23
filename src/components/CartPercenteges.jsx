@@ -33,7 +33,7 @@ const CartPercenteges = () => {
           <article>    
             <h5 style={{ alignItems: 'center' }}>Hidratos de Carbono: 
                 <span>
-                    <ProgressBar 
+                    <ProgressBar
                         text={nutrients.Carbohydrates.toString()}
                         value={nutrients.Carbohydrates.toNumber()}
                         filledValue={CarbRange}
@@ -86,7 +86,7 @@ const CartPercenteges = () => {
   h5,
   p {
     display: grid;
-    grid-template-columns: 260px 1fr;
+    grid-template-columns: 275px 1fr;
   }
   p {
     text-transform: capitalize;

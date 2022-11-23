@@ -5,7 +5,7 @@ import PageHero from '@components/PageHero'
 const ProductsPage = () => {
   return (
     <main>
-      <PageHero title='products' />
+      <PageHero title='productos' />
       <Wrapper className='page'>
         <div className='section-center products'>
           <div>

@@ -43,7 +43,7 @@ const Wrapper = styled.section`
   h5,
   p {
     display: grid;
-    grid-template-columns: 235px 1fr;
+    grid-template-columns: 250px 1fr;
   }
   p {
     text-transform: capitalize;
